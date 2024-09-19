@@ -1,2 +1,2 @@
 # exercicios-backend
-Aulas JP back-end 2024
+Aulas JP referente a back-end em NodeJS
