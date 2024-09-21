@@ -1,8 +1,10 @@
 const express = require('express');
+const { somar, sub, mult, div } = require ('./exercicios')
 
 const app = express();
-
+const porta =3000
 app.use(express.json());
+
 //Metodo GET
 app.get("/exercicio1/", (req, res) => {
     // http://localhost:3000/exercicio1/?num1=0&num2=3
@@ -48,6 +50,8 @@ app.post("/exercicio2/", (req, res) => {
 app.post("/exercicio3/", (req, res) => {
     // http://localhost:3000/exercicio2=3
 
+    const { num1, num2, num3, num4, num5 } = req.body
+
     // const { peso } = req.body;
 
     //----------Tudo errado-----------
@@ -61,7 +65,7 @@ app.post("/exercicio3/", (req, res) => {
 
     // const solicitarPeso = () =>
 
-    const resultado = Number(num1) - Number(num2);
+    const resultado = somar(num1, num2,num3, num4, num5);
 
     res.json({ resultadoPost: resultado })
 })
