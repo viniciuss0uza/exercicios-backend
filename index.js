@@ -1,5 +1,13 @@
+//Baixar node_modules: 'npm i express'
+//Para fazer testes:   'npm i jest --save-dev'
+//Executar teste no terminal: 'npm test'.
 const express = require('express');
-const { somar, sub, mult, div } = require ('./exercicios')
+const { 
+    somar, 
+    sub, 
+    mult, 
+    div 
+} = require ('./exercicios')
 
 const app = express();
 const porta =3000
@@ -33,14 +41,14 @@ app.post("/exercicio1/", (req, res) => {
     //se deu errado: console.log(num1, num2);
 
     const resultado = Number(num1) + Number(num2);
-
+  
     res.json({ resultadoPost: resultado })
 })
 
 app.post("/exercicio2/", (req, res) => {
     // http://localhost:3000/exercicio2
     const num1 = req.body.num1
-    const num2 = req.body.num2
+    const num2 = req.  body.num2
 
     const resultado = Number(num1) - Number(num2);
 
@@ -50,7 +58,13 @@ app.post("/exercicio2/", (req, res) => {
 app.post("/exercicio3/", (req, res) => {
     // http://localhost:3000/exercicio2=3
 
-    const { num1, num2, num3, num4, num5 } = req.body
+    const { 
+        num1, 
+        num2, 
+        num3, 
+        num4, 
+        num5 
+    } = req.body
 
     // const { peso } = req.body;
 
@@ -68,6 +82,13 @@ app.post("/exercicio3/", (req, res) => {
     const resultado = somar(num1, num2,num3, num4, num5);
 
     res.json({ resultadoPost: resultado })
+})
+
+app.post("/exercicio15/", (req, res) => {
+    // http://localhost:3000/exercicio15
+    const { a, b, c } = req.body
+    const resultado = verificaTriangulos2(a,b,c)
+    res.status(201).json({ resultado })
 })
 app.listen(3000, () => {
     console.log('servidor está rodando na porta 3000')
