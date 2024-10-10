@@ -1,5 +1,8 @@
 class ServeceExercicio {
     Somar(num1, num2) {
+        if (isNaN(num1) || isNaN(num2)) {
+            throw new Error('Informe um número')
+        }
         return Number(num1) + Number(num2);    
     }
     
@@ -10,7 +13,6 @@ class ServeceExercicio {
         return valorHora * horasTrabalhadas
     }
 
-    
     // Primeira forma
     VerificaTriangulos(a, b, c) {
         let resultado
@@ -40,8 +42,6 @@ class ServeceExercicio {
         }
     }
 }
-
-
 
 // // module.exports = somar // Exportando default, uma unica função
 // module.exports = ServiceExercicio -> const exercicio = SeviceExercicio

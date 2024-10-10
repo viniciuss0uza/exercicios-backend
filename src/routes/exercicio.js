@@ -1,10 +1,11 @@
 const express = require('express');
-const ControllerExercicio = require('../controller/exercicio')
+const ControllerExercicio = require('../../controller/exercicio')
 
 const router = express.Router();
 
 router.post("/exercicio1/", ControllerExercicio.Somar)
-router.post("/exercicio15/",)
+//router.post("/exercicio2/", ControllerExercicio.CalculaSalario)
+router.post("/exercicio15/", ControllerExercicio.Triangulo)
 
 // app.post("/exercicio2/", (req, res) => {
 //     // http://localhost:3000/exercicio2
@@ -31,7 +32,5 @@ router.post("/exercicio15/",)
 
 //     res.json({ resultadoPost: resultado })
 // })
-
-
 
 module.exports = router;

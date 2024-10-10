@@ -1,3 +1,5 @@
+const ServiceExercicio = require('../service/exercicio')
+
 class ControllerExercicio {
     Somar(req, res) {
         // http://localhost:3000/exercicio1
@@ -10,24 +12,30 @@ class ControllerExercicio {
             res.status(500).json({msg: e.message })
         }   
     }
+
     CalcularSalario(req, res) {
         try {
+            const { salarioHora, horasTrabalhadas } = req.body
             // const salarioHora = req.body.salarioHora
             // const horasTrabalhadas = req.body.horasTrabalhadas
-            const resultado = ServiceExercicio.CalcularSalario(salarioHoa, horaTrabalhadas)
+            const resultado = ServiceExercicio
+                .CalcularSalario(salarioHora, horasTrabalhadas)
 
-            res.status(201).json({ msg: "sucesso" })
+            res.status(201).json({ msg: "resultado" })
         } catch (error) {
-            res.status(422).json({ msg: e.message })
+            res.status(422).json({ msg: error.message })
         }
     }
 
-
     Triangulo(req, res)  {
         // http://localhost:3000/exercicio15
-        const { a, b, c } = req.body
-        const resultado = verificaTriangulos2(a,b,c)
-        res.status(201).json({ resultado })
+        try {
+            const { a, b, c } = req.body
+            const resultado = ServiceExercicio.VerificaTriangulos(a,b,c)
+            res.status(201).json({ resultado })
+        } catch (e) {
+            res.status(500).json({ msg: e.message })
+        }
     }
 }
 module.exports = new ControllerExercicio();

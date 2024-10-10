@@ -12,4 +12,3 @@ app.use(express.json());
 app.listen(3000, () => {
     console.log('servidor está rodando na porta 3000')
 })
-
